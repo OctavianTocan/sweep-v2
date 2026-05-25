@@ -71,10 +71,43 @@ npx skills add OctavianTocan/sweep-v2
 
 See the README for full installation and usage details.
 
+## Decision Tree (High Level)
+
+```
+Input
+  |
+  +-- No args or "help" → Show quick reference + link to README
+  |
+  +-- "ls" or "ls <name>" → cookbook/ls.md (discovery)
+  |
+  +-- "preflight" → cookbook/preflight.md (standalone gate)
+  |
+  +-- "polish" → cookbook/polish-pass.md (standalone polish)
+  |
+  +-- Review status keyword (changes requested / cr / approved / etc.) → filter mode
+  |
+  +-- Single PR# or branch → single mode (interactive, full gates)
+  |     1. Identify PR
+  |     2. Mandatory: Coverage preflight (user accepts risk if needed)
+  |     3. Rebase + rebase impact analysis
+  |     4. Feedback loop (pattern grouping + visual gate)
+  |     5. Strongly recommended: Polish pass
+  |     6. Mandatory: Build verification
+  |     7. Thread resolution + PR hygiene
+  |
+  +-- Multiple PR#s or status filter → batch / autonomous mode
+        - Worktree per PR
+        - Parallel subagents (conservative on quality gates)
+        - Coverage preflight still required (pre-approval or per-PRK)
+        - Rich structured report back to parent
+```
+
+Full routing logic lives in the individual cookbooks. This SKILL.md stays lean by design.
+
 ## Predecessor Skills
 
 This is the spiritual and functional successor to:
 - Original `sweep` (heavy automation, thread resolution, autonomous batch)
 - `loop-review` (coverage gate, polish pass, clean architecture)
 
-All valuable capabilities from both have been preserved and integrated.
+All valuable capabilities from both have been preserved and integrated under a single, disciplined structure.
