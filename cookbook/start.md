@@ -2,28 +2,29 @@
 
 ## Context
 
-You have an open PR (or a branch ready for one) with feedback from reviewers.
+You have an open PR (or a branch ready for one) with feedback from any combination of reviewers.
 
-You want the full power of automated thread resolution + rebase analysis + batch capabilities, **without ever compromising** on coverage or code quality.
+You want the full power of the original sweep engine (thread resolution, rebase analysis, learning system, autonomous batch) **without ever compromising** the quality standards from loop-review.
 
-## Steps (High Level)
+## Recommended Entry Points
 
-1. Confirm branch and PR context.
-2. **Mandatory**: Run the hard coverage preflight gate (see cookbook/preflight.md).
-   - User must explicitly accept risk on any Yellow/Red findings.
-3. Rebase + rebase impact analysis (see references/rebase-analysis-agent.md and cookbook/rebase-triage.md).
-4. Process review feedback (single or batch mode).
-5. Run the high-signal self-review polish pass (see cookbook/polish-pass.md).
-6. Build verification loop (mandatory — never ship broken checks).
-7. Update PR, re-request reviews, resolve threads where appropriate.
-8. Final hygiene and push.
+Most people start with one of these:
 
-## Exit Criteria
+- `/sweep-v2` (or `/sweep-v2 <PR#>` / branch) → Full guided single-PR flow
+- `/sweep-v2 ls` → See what needs attention
+- `/sweep-v2 polish` → Just run the highest-leverage quality step
+- `/sweep-v2 changes requested` → Process your entire review queue
 
-- All blocking/important reviewer comments addressed or deliberately deferred with evidence.
-- Coverage gate passed or risk explicitly accepted.
-- Polish pass completed.
-- All checks (typecheck/build/lint/test) green.
-- No rationalization — every resolved thread cites a real fix location.
+## What the Full Flow Guarantees (v2)
 
-This is the new standard.
+1. Coverage preflight is run and risk is explicitly accepted when necessary.
+2. Rebase impact is analyzed (not ignored).
+3. Visual/styling changes require human approval.
+4. Rationalization is prevented — resolved threads have real citations.
+5. A high-signal polish pass is performed.
+6. All checks (typecheck/build/lint/test) are green at the end.
+7. Structured learning records are emitted for future sweeps.
+
+This is the new standard for turning review feedback into production-ready code.
+
+See `SKILL.md` for the complete decision tree and command reference.

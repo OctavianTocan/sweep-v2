@@ -55,6 +55,13 @@ See `SKILL.md` for the full decision tree and argument parsing rules.
 - Mandatory build verification loop
 - **New in v2**: Non-negotiable coverage preflight + elevated polish pass
 
+## Documentation
+
+- `SKILL.md` — Lean router, philosophy, and command decision tree
+- `CHANGELOG.md` — Version history
+- `MIGRATION.md` — How to move from the old `sweep` and `loop-review` skills
+- `references/architecture.md` — The unified "Powerful Engine + Quality Soul" design
+
 ## Development & Contribution
 
 This skill follows the strict `create-skill` progressive disclosure format:

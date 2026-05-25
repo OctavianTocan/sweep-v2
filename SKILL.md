@@ -45,19 +45,22 @@ Sweep v2 never leaves a PR with broken tests or unexamined coverage. It also nev
 This skill follows the strict create-skill progressive disclosure format:
 
 - `SKILL.md` — Lean router + philosophy (this file)
-- `cookbook/` — Detailed step-by-step workflows
-- `references/` — Models, patterns, schemas, and agent prompts
+- `cookbook/` — Detailed step-by-step workflows (single, batch, preflight, polish, build-verify, filter, pattern-learning, etc.)
+- `references/` — Models, patterns, schemas, and agent prompts (architecture, rebase analysis, visual gate, rationalization prevention, learning system, etc.)
 - `examples/` — Realistic public examples
 - `scripts/` — Proven executable shell helpers (GitHub GraphQL, worktrees, checks, etc.)
+
+See `CHANGELOG.md` and `MIGRATION.md` for history and upgrade guidance.
 
 ## Core Principles
 
 1. Coverage is non-negotiable (see cookbook/preflight.md)
 2. Polish is the highest-leverage step (see cookbook/polish-pass.md)
-3. Rebase impact must be analyzed, not ignored (see references/rebase-analysis-agent.md)
-4. Visual/styling changes require explicit human approval (hard gate)
-5. Rationalization is forbidden — every resolved thread must cite a real fix location
-6. The learning system improves over time (.sweep-lessons.json)
+3. Build verification is mandatory after all changes (see cookbook/build-verify.md)
+4. Rebase impact must be analyzed, not ignored (see references/rebase-analysis-agent.md)
+5. Visual/styling changes require explicit human approval (hard gate)
+6. Rationalization is forbidden — every resolved thread must cite a real fix location
+7. The learning system improves over time (cookbook/pattern-learning.md + .sweep-lessons.json)
 
 ## Getting Started
 

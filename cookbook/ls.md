@@ -2,12 +2,29 @@
 
 ## Context
 
-Use when you run `/sweep-v2 ls` (or with a repo name for fuzzy search).
+Use `/sweep-v2 ls` (or `/sweep-v2 ls <repo-name>` for fuzzy search across repos).
 
-Shows your open PRs enriched with unresolved review thread counts and reviewer names.
+Shows your open PRs enriched with:
+- Number of unresolved review threads
+- Reviewer names (including bots)
+- Current review status when available
 
-## Implementation Notes (v2)
+This is the fastest way to see where your attention is needed.
 
-This will use the proven `scripts/fetch-threads.sh` + `scripts/detect-bots.sh` machinery from the original sweep, presented cleanly.
+## Implementation (v2)
 
-For now this is a stub — full implementation coming in the merge.
+Uses the same proven scripts as the rest of the skill:
+- `scripts/detect-repo.sh`
+- `scripts/fetch-threads.sh`
+- `scripts/detect-bots.sh`
+
+Results are grouped and sorted to surface the most actionable PRs first.
+
+## Next Actions from Here
+
+From the list you can jump directly into:
+- Single mode on a specific PR
+- Batch mode on multiple PRs
+- Filter mode for a particular status
+
+This command is read-only and safe to run at any time.
