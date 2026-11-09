@@ -3,7 +3,7 @@
 # Usage: detect-repo.sh
 # Output: Two lines — OWNER then REPO
 #   Example:
-#     thirdear-ai
+#     acme
 #     web-app
 set -euo pipefail
 
